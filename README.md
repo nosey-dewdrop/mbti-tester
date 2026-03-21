@@ -1,11 +1,7 @@
 # mbti-tester
 local storage, github pages deploy, i'll code it because i am really bored of collecting all the assets for my other projects. 
 
---- 
-
 a field guide to figuring out someone's mbti without making them take the test. because let's be real, you can't just hand someone a 16 personalities link on the third date. some people do it anyways. it was lovely to know you more. thank you... 
-
----
 
 this project is purely built on personal experience and painful observations. like after many bad meeting, dates etc. i used to wonder why this person acted this way? actually i should have seen this coming. i should have observed them more so that i would know what their next act is. mbti, or any thing that portrays someones charater in a spectrum is good to know i think. of course 10b people living only at this moment are not similar but it is a spectrum. like, i am lilac and you are violet. 
 
