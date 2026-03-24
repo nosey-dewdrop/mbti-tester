@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mbti field guide - by damla</title>
+    <link rel="icon" href="assets/damla-icon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="header-content">
+                <img src="assets/damla-icon.png" alt="damla" class="header-icon">
+                <h1>mbti field guide</h1>
+                <p class="subtitle">a survival manual for reading people</p>
+            </div>
+            <nav id="main-nav">
+                <a href="#game" class="nav-tab active" data-page="game">the game</a>
+                <a href="#what" class="nav-tab" data-page="what">what is mbti?</a>
+                <a href="#how" class="nav-tab" data-page="how">how to spot it</a>
+                <a href="#types" class="nav-tab" data-page="types">16 types</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- GAME PAGE (HOME) -->
+            <section id="page-game" class="page active">
+                <div id="game-intro">
+                    <div class="text-box damla-note">
+                        <p>so you met someone. you like them. or you're stuck in a group project with them. either way — <strong>what's their deal?</strong></p>
+                        <p>you can't hand them a 16personalities link. that's weird. so instead, you <em>observe.</em></p>
+                        <p>answer 10 questions about this person. i'll tell you what they probably are.</p>
+                    </div>
+                    <div class="game-start-wrap">
+                        <button id="start-game-btn" class="pixel-btn pixel-btn-big">start observing</button>
+                    </div>
+                </div>
+
+                <div id="game-play" class="hidden">
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <span class="progress-text" id="progress-text">1 / 10</span>
+                    </div>
+                    <div id="question-card" class="question-card">
+                        <p class="q-context" id="q-context"></p>
+                        <p class="q-text" id="q-text"></p>
+                        <div class="q-options" id="q-options"></div>
+                    </div>
+                </div>
+
+                <div id="game-result" class="hidden">
+                    <div class="result-card">
+                        <p class="result-label">based on your observations, this person is probably...</p>
+                        <img id="result-avatar" src="" alt="" class="result-avatar">
+                        <span class="result-type-code" id="result-type-code"></span>
+                        <span class="result-type-nick" id="result-type-nick"></span>
+                        <div class="result-breakdown" id="result-breakdown"></div>
+                        <div class="result-damla" id="result-damla"></div>
+                        <div class="result-actions">
+                            <button id="play-again-btn" class="pixel-btn">play again</button>
+                            <button id="see-type-btn" class="pixel-btn pixel-btn-accent">full profile</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WHAT IS MBTI PAGE -->
+            <section id="page-what" class="page">
+                <div class="story-container" id="story-container">
+                    <div class="story-step story-step-active" data-step="0">
+                        <div class="story-visual">
+                            <div class="story-emoji">&#129300;</div>
+                        </div>
+                        <div class="text-box">
+                            <p>imagine you're at a party. some people are <strong>in the center</strong>, telling stories, laughing loud. others are <strong>in the corner</strong>, having one deep conversation.</p>
+                            <p>that's the first clue.</p>
+                        </div>
+                    </div>
+                    <div class="story-step" data-step="1">
+                        <div class="story-visual">
+                            <div class="story-emoji">&#127758;</div>
+                        </div>
+                        <div class="text-box">
+                            <p>some people talk about <strong>what happened</strong> — facts, details, the real world. others talk about <strong>what could happen</strong> — ideas, patterns, possibilities.</p>
+                            <p>that's the second clue.</p>
+                        </div>
+                    </div>
+                    <div class="story-step" data-step="2">
+                        <div class="story-visual">
+                            <div class="story-emoji">&#9878;&#65039;</div>
+                        </div>
+                        <div class="text-box">
+                            <p>when a friend makes a terrible decision — do you say <strong>"here's why that's dumb"</strong> or <strong>"i understand how you feel"</strong>?</p>
+                            <p>head vs heart. third clue.</p>
+                        </div>
+                    </div>
+                    <div class="story-step" data-step="3">
+                        <div class="story-visual">
+                            <div class="story-emoji">&#128197;</div>
+                        </div>
+                        <div class="text-box">
+                            <p>plans change last minute. some people <strong>lose it</strong>. others say <strong>"cool, what's the new plan?"</strong></p>
+                            <p>structure vs flow. fourth and final clue.</p>
+                        </div>
+                    </div>
+                    <div class="story-step" data-step="4">
+                        <div class="story-visual">
+                            <div class="story-emoji">&#129529;</div>
+                        </div>
+                        <div class="text-box">
+                            <p><strong>4 axes. 2 options each. 16 combinations.</strong></p>
+                            <p>that's mbti. it's not a horoscope. it's not a diagnosis. it's a lens — and a surprisingly useful one when you're trying to figure out why someone acts the way they do.</p>
+                            <p class="damla-aside">— damla (infp, dramatically)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-nav">
+                    <button id="story-prev" class="pixel-btn pixel-btn-secondary" disabled>&lt; prev</button>
+                    <div class="story-dots" id="story-dots"></div>
+                    <button id="story-next" class="pixel-btn">next &gt;</button>
+                </div>
+            </section>
+
+            <!-- HOW TO SPOT IT PAGE -->
+            <section id="page-how" class="page">
+                <h2>the four axes</h2>
+                <p class="page-subtitle">how people take in the world and make decisions</p>
+
+                <div class="axis-card" id="axis-ei">
+                    <div class="axis-header">
+                        <span class="axis-letter axis-left">E</span>
+                        <span class="axis-name">energy</span>
+                        <span class="axis-letter axis-right">I</span>
+                    </div>
+                    <div class="axis-meter"><div class="axis-meter-fill"></div></div>
+                    <div class="axis-body">
+                        <div class="axis-col">
+                            <h4>extraversion</h4>
+                            <ul>
+                                <li>talks to think</li>
+                                <li>energized by people</li>
+                                <li>wide circle, many friends</li>
+                                <li>acts first, reflects later</li>
+                            </ul>
+                        </div>
+                        <div class="axis-col">
+                            <h4>introversion</h4>
+                            <ul>
+                                <li>thinks to talk</li>
+                                <li>drained by crowds</li>
+                                <li>small circle, deep bonds</li>
+                                <li>reflects first, acts later</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="axis-tip">
+                        <strong>spot it:</strong> after a long group hangout, do they want more or need to recharge alone?
+                    </div>
+                </div>
+
+                <div class="axis-card" id="axis-sn">
+                    <div class="axis-header">
+                        <span class="axis-letter axis-left">S</span>
+                        <span class="axis-name">information</span>
+                        <span class="axis-letter axis-right">N</span>
+                    </div>
+                    <div class="axis-meter"><div class="axis-meter-fill"></div></div>
+                    <div class="axis-body">
+                        <div class="axis-col">
+                            <h4>sensing</h4>
+                            <ul>
+                                <li>focuses on what IS</li>
+                                <li>practical, concrete</li>
+                                <li>remembers details</li>
+                                <li>trusts experience</li>
+                            </ul>
+                        </div>
+                        <div class="axis-col">
+                            <h4>intuition</h4>
+                            <ul>
+                                <li>focuses on what COULD BE</li>
+                                <li>abstract, theoretical</li>
+                                <li>sees patterns</li>
+                                <li>trusts gut feelings</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="axis-tip">
+                        <strong>spot it:</strong> when they tell a story, do they describe exactly what happened or what it meant?
+                    </div>
+                </div>
+
+                <div class="axis-card" id="axis-tf">
+                    <div class="axis-header">
+                        <span class="axis-letter axis-left">T</span>
+                        <span class="axis-name">decisions</span>
+                        <span class="axis-letter axis-right">F</span>
+                    </div>
+                    <div class="axis-meter"><div class="axis-meter-fill"></div></div>
+                    <div class="axis-body">
+                        <div class="axis-col">
+                            <h4>thinking</h4>
+                            <ul>
+                                <li>logic first, always</li>
+                                <li>values fairness</li>
+                                <li>blunt honesty</li>
+                                <li>debates for fun</li>
+                            </ul>
+                        </div>
+                        <div class="axis-col">
+                            <h4>feeling</h4>
+                            <ul>
+                                <li>values first, always</li>
+                                <li>values harmony</li>
+                                <li>tactful honesty</li>
+                                <li>avoids conflict</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="axis-tip">
+                        <strong>spot it:</strong> when you vent about a problem, do they give you a solution or a hug?
+                    </div>
+                </div>
+
+                <div class="axis-card" id="axis-jp">
+                    <div class="axis-header">
+                        <span class="axis-letter axis-left">J</span>
+                        <span class="axis-name">lifestyle</span>
+                        <span class="axis-letter axis-right">P</span>
+                    </div>
+                    <div class="axis-meter"><div class="axis-meter-fill"></div></div>
+                    <div class="axis-body">
+                        <div class="axis-col">
+                            <h4>judging</h4>
+                            <ul>
+                                <li>plans everything</li>
+                                <li>loves closure</li>
+                                <li>early is on time</li>
+                                <li>decides fast</li>
+                            </ul>
+                        </div>
+                        <div class="axis-col">
+                            <h4>perceiving</h4>
+                            <ul>
+                                <li>improvises everything</li>
+                                <li>keeps options open</li>
+                                <li>on time is early</li>
+                                <li>decides... eventually</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="axis-tip">
+                        <strong>spot it:</strong> you change plans last minute. are they stressed or excited?
+                    </div>
+                </div>
+
+                <div class="text-box damla-note" style="margin-top:24px;">
+                    <p><strong>combine all four</strong> and you get one of 16 types. an INTJ is introverted, intuitive, thinking, judging — the strategic mastermind who will sacrifice you for the greater good. an ESFP is extraverted, sensing, feeling, perceiving — the life of the party who lives entirely in the moment.</p>
+                    <p>now go to <a href="#types">16 types</a> and find your person.</p>
+                </div>
+            </section>
+
+            <!-- 16 TYPES PAGE -->
+            <section id="page-types" class="page">
+                <h2>choose your fighter</h2>
+                <p class="page-subtitle">click a type to read the field notes</p>
+                <div class="types-grid" id="types-grid"></div>
+            </section>
+
+            <!-- TYPE DETAIL PAGE -->
+            <section id="page-type-detail" class="page">
+                <a href="#types" class="back-btn">&lt; back to all types</a>
+                <div id="type-detail-content"></div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="divider"><img src="assets/divider-h.png" alt=""></div>
+            <p>made by <a href="https://github.com/damummyphus" target="_blank">damla</a> with painful observations & pixel art</p>
+        </footer>
+    </div>
+
+    <script src="js/types-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
