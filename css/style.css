@@ -370,9 +370,117 @@ a { color: var(--accent); }
     margin-bottom: 16px;
 }
 
-.story-emoji {
-    font-size: 56px;
-    animation: pop 0.5s ease;
+/* ===== BLOG ARTICLE STYLES ===== */
+
+.blog-article { max-width: 700px; margin: 0 auto; }
+
+.blog-section { margin-bottom: 8px; }
+
+.blog-date {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.blog-heading {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.blog-diagram {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-width: 280px;
+    margin: 0 auto 16px;
+}
+
+.diagram-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.diagram-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 7px;
+    color: var(--text-dim);
+    width: 80px;
+    text-align: right;
+}
+
+.diagram-pole {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    color: var(--gold);
+    width: 24px;
+    text-align: center;
+}
+
+.diagram-line {
+    flex: 1;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--accent));
+    border-radius: 2px;
+}
+
+.blog-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 280px;
+    margin: 0 auto 16px;
+}
+
+.stack-item {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    padding: 8px 16px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.stack-dom { background: var(--gold); color: var(--bg-dark); }
+.stack-aux { background: rgba(240,192,64,0.5); color: var(--bg-dark); }
+.stack-ter { background: rgba(240,192,64,0.25); color: var(--text); }
+.stack-inf { background: rgba(240,192,64,0.1); color: var(--text-dim); }
+
+.functions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.func-card {
+    background: rgba(0,0,0,0.25);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.func-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 11px;
+    color: var(--gold);
+}
+
+.func-desc {
+    font-size: 16px;
+    color: var(--text-dim);
+    line-height: 1.3;
+}
+
+@media (max-width: 600px) {
+    .functions-grid { grid-template-columns: 1fr; }
 }
 
 .story-nav {

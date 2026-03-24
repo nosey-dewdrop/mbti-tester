@@ -10,14 +10,11 @@
         scores: { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 },
         answers: []
     };
-    let storyStep = 0;
-    const TOTAL_STORY_STEPS = 5;
 
     // ===== INIT =====
     document.addEventListener('DOMContentLoaded', () => {
         initNav();
         initTypesGrid();
-        initStory();
         initGame();
         handleHash();
         window.addEventListener('hashchange', handleHash);
@@ -147,57 +144,6 @@
                 </div>
             </div>
         `;
-    }
-
-    // ===== STORY (WHAT IS MBTI) =====
-    function initStory() {
-        // build dots
-        const dotsContainer = document.getElementById('story-dots');
-        for (let i = 0; i < TOTAL_STORY_STEPS; i++) {
-            const dot = document.createElement('div');
-            dot.className = 'story-dot' + (i === 0 ? ' active' : '');
-            dotsContainer.appendChild(dot);
-        }
-
-        document.getElementById('story-prev').addEventListener('click', () => {
-            if (storyStep > 0) {
-                storyStep--;
-                updateStory();
-            }
-        });
-
-        document.getElementById('story-next').addEventListener('click', () => {
-            if (storyStep < TOTAL_STORY_STEPS - 1) {
-                storyStep++;
-                updateStory();
-            }
-        });
-    }
-
-    function updateStory() {
-        document.querySelectorAll('.story-step').forEach(step => {
-            step.classList.remove('story-step-active');
-        });
-        const active = document.querySelector(`.story-step[data-step="${storyStep}"]`);
-        if (active) active.classList.add('story-step-active');
-
-        // dots
-        document.querySelectorAll('.story-dot').forEach((dot, i) => {
-            dot.className = 'story-dot';
-            if (i < storyStep) dot.classList.add('done');
-            if (i === storyStep) dot.classList.add('active');
-        });
-
-        // buttons
-        document.getElementById('story-prev').disabled = storyStep === 0;
-        const nextBtn = document.getElementById('story-next');
-        if (storyStep === TOTAL_STORY_STEPS - 1) {
-            nextBtn.textContent = 'done!';
-            nextBtn.disabled = true;
-        } else {
-            nextBtn.textContent = 'next >';
-            nextBtn.disabled = false;
-        }
     }
 
     // ===== GAME =====
